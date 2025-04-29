@@ -11,6 +11,7 @@ import {
   ScheduleFrequency,
   DayOfWeek,
 } from "@/types/types";
+import { Button } from "@/components/ui/button";
 
 export default function HomePage() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -170,12 +171,26 @@ export default function HomePage() {
     await fetchGroups();
   };
 
+  const onRefresh = () => {
+    fetchUsers();
+    fetchGroups();
+  };
+
   if (!authenticated) {
     return <LoginForm onLogin={() => setAuthenticated(true)} />;
   }
 
   return (
     <div className="min-h-screen bg-gray-50 p-6 space-y-6">
+      {/* Refresh button */}
+      <div className="flex justify-end">
+        <Button
+          onClick={onRefresh}
+        >
+          Refresh
+        </Button>
+      </div>
+
       <UsersSection
         users={users}
         onCreateUser={onCreateUser}
