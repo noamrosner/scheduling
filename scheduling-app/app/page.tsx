@@ -46,8 +46,8 @@ export default function HomePage() {
     dayOfWeek?: DayOfWeek
   ) => {
     // Build payload, include dayOfWeek only when weekly
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const payload: any = {
-      // eslint-disable-line @typescript-eslint/no-explicit-any
       email,
       timezone,
       preferredTime,
@@ -76,8 +76,8 @@ export default function HomePage() {
     frequency: ScheduleFrequency,
     dayOfWeek?: DayOfWeek
   ) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const payload: any = {
-      // eslint-disable-line @typescript-eslint/no-explicit-any
       email,
       timezone,
       preferredTime,
@@ -111,6 +111,7 @@ export default function HomePage() {
     frequency: ScheduleFrequency,
     dayOfWeek?: DayOfWeek
   ) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const payload: any = {
       name,
       timezone,
@@ -137,6 +138,7 @@ export default function HomePage() {
     frequency: ScheduleFrequency,
     dayOfWeek?: DayOfWeek
   ) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const payload: any = {
       name,
       timezone,

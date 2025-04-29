@@ -6,10 +6,10 @@ export const dynamic = "force-dynamic";
 
 export async function PATCH(
   request: Request,
-  { params }: { params: { groupId: string } }
+  { params }: { params: Promise<{ groupId: string }> }
 ) {
   await dbConnect();
-  const { groupId } = params;
+  const { groupId } = await params;
   const data = await request.json();
 
   // Validate `data` here (e.g. ensure timezone is IANA, frequency/dayOfWeek logic, etc.)
