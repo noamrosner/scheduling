@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { dbConnect } from "@/lib/dbConnect";
 import { Group } from "@/models/Group";
+import "@/models/User";
 
 export const dynamic = "force-dynamic";
 
@@ -12,8 +13,10 @@ export async function GET() {
   const groups = docs.map((doc) => ({
     id: doc._id.toString(),
     name: doc.name,
-    members: doc.members.map((m: any) => // eslint-disable-line @typescript-eslint/no-explicit-any
-      typeof m === "string" ? m : m._id.toString()
+    members: doc.members.map(
+      (
+        m: any // eslint-disable-line @typescript-eslint/no-explicit-any
+      ) => (typeof m === "string" ? m : m._id.toString())
     ),
     timezone: doc.timezone,
     preferredTime: doc.preferredTime,
