@@ -12,6 +12,7 @@ import {
   DayOfWeek,
 } from "@/types/types";
 import { Button } from "@/components/ui/button";
+import SingleAddUserSection from "@/components/single-add-user-section";
 
 export default function HomePage() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -184,13 +185,10 @@ export default function HomePage() {
     <div className="min-h-screen bg-gray-50 p-6 space-y-6">
       {/* Refresh button */}
       <div className="flex justify-end">
-        <Button
-          onClick={onRefresh}
-        >
-          Refresh
-        </Button>
+        <Button onClick={onRefresh}>Refresh</Button>
       </div>
 
+      <SingleAddUserSection onCreateUser={onCreateUser} />
       <UsersSection
         users={users}
         onCreateUser={onCreateUser}

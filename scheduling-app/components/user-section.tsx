@@ -80,7 +80,9 @@ export default function UsersSection({
 }: UsersSectionProps) {
   // Create form state
   const [email, setEmail] = useState("");
-  const [timezone, setTimezone] = useState("");
+  const [timezone, setTimezone] = useState<string>(() => {
+    return moment.tz.guess();
+  });
   const [preferredTime, setPreferredTime] = useState("09:00");
   const [emailType, setEmailType] = useState<EmailType>("daily-summary");
   const [frequency, setFrequency] = useState<ScheduleFrequency>("daily");
